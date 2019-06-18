@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+常见的闭包形式?
+1.将函数作为其父函数的返回值；
+2.将函数的形参作为实参传递给另一个函数；
+-->
+<script type="text/javascript">
+    /*1.将函数作为其父函数的返回值*/
+    function fn1() {
+        var num = 10;//函数的局部变量
+        console.log(num);
+        var fun = function fn2() {
+            num++;
+            console.log(num);
+        }
+
+        return fun;
+    }
+
+    /**
+     * 闭包达到了两个目的：
+     * (1)延长了函数内部局部变量的生命周期；例如：fn1函数中的num生命周期被延长
+     * (2)通过闭包操作被延长了生命周期的函数内部局部变量；例如fn2实现了num的自增
+     */
+    var fun = fn1();
+    fun();
+    fun();
+    /**
+     * 缺点：局部变量的作用域是函数运行结束后会自动释放，但是闭包使其生命周期得到了延长，因此需要释放;例如：fun不再使用时，需要释放
+     */
+    fun = null;
+
+
+    /*2.将函数的形参作为实参传递给另一个函数*/
+    function delayAlert(msg, time) {
+        debugger
+        setTimeout(function () {
+            alert(msg);
+        }, time);
+    }
+
+    delayAlert('闭包测试', 3000);
+</script>
+</body>
+</html>

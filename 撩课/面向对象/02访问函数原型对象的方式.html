@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>访问函数原型对象的方式</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    //方式一:通过构造函数访问
+    Person.prototype.run = function () {
+        console.log('method run')
+    };
+    console.log(Person.prototype);
+
+    var person = new Person();
+    person.run();
+    console.log(person.__proto__);
+
+    /**
+     * 方式二:通过实例访问__proto__(但是这种方式不推荐，因为有兼容性问题)
+     * __proto__是一个非标准属性，即ECMAScript中并不包含该属性，这只是某些游览器为了开发人员的开发和调试提供的
+     */
+    person.__proto__.run2 = function () {
+        console.log('method run2')
+    };
+    console.log(person.__proto__);
+
+
+    /**
+     * 改变原型的指向
+     */
+    var newProto = {
+        'add': function() {
+
+        }
+    };
+    Person.prototype = newProto;
+
+    console.log(person.__proto__);//改变prototype之前的实例化对象
+
+    var person2 = new Person();
+    console.log(person2.__proto__);//改变prototype之后的实例化对象
+
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内置对象类型判断</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        /**
+         * typeof判断一个对象是object还是基本数据类型
+         */
+        var person = new Person();
+        var date = new Date();
+        var array = [1, 2, 3];
+        var obj = {};
+        console.log(typeof date);//输出obejct
+        console.log(typeof array);//输出obejct
+        console.log(typeof person);//输出obejct
+        console.log(typeof 1);//输出number
+        console.log(typeof true);//输出boolean
+
+        /**
+         *toString
+         */
+        console.log(date.toString());//输出时间Mon Jun 17 2019 09:52:45 GMT+0800 (中国标准时间)
+        console.log(array.toString());//输出数组内容1,2,3
+        console.log(obj.toString());//[object Object]
+        console.log(person.toString());//[object Object]
+
+        /**
+         *constructor.name输出改对象的对象名
+         */
+        console.log(date.constructor.name);
+        console.log(array.constructor.name);
+        console.log(obj.constructor.name);
+        console.log(person.constructor.name);
+
+        /**
+         *Object.prototype.toString.call找到该类的祖先类
+         */
+        console.log(Object.prototype.toString.call(date));
+        console.log(Object.prototype.toString.call(array));
+        console.log(Object.prototype.toString.call(obj));
+        console.log(Object.prototype.toString.call(person));
+
+        /**
+         *instanceof判断该对象的类型
+         */
+        console.log(date instanceof Date);
+        console.log(date instanceof Object);
+        console.log(date instanceof Person);
+    </script>
+</body>
+</html>

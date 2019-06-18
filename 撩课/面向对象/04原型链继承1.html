@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function Person() {
+            this.name = 'xxxx';
+            this.gender = 1;
+        }
+        Person.prototype.run = function () {
+            console.log('running')
+        };
+
+        function Student() {
+            this.number = 100;
+        }
+
+        // var student = new Student();
+        // console.log(student.number);
+        // console.log(student.name);
+        // console.log(student.run());
+
+        //这种继承方式的缺点是，只继承了Person.prototype中的方法和属性(例如run方法)，但是没有继承Person函数中name、gender等属性
+        Student.prototype = Person.prototype;
+        var student2 = new Student();
+        console.log(student2.number);
+        console.log(student2.name);
+        student2.run();
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        /**
+         *in:判断一个对象自身和原型中是否包含某个属性
+         * hasOwnProperty:只判断自身是否包含这个属性
+         */
+        Person.prototype.address = '地址';
+
+        var person = new Person();
+        console.log('name' in person);//true
+        console.log('address' in person);//true
+        console.log(person.hasOwnProperty('address'));//false
+
+        //isPrototypeOf判断一个对象是否是类的原型
+        console.log(Person.prototype.isPrototypeOf(person));
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+闭包的作用:
+1.延长局部变量生命周期
+2.通过闭包操作被延长了生命周期的函数内部局部变量
+实现方式如下：
+-->
+<!--方式1-->
+<script type="text/javascript">
+    function method1() {
+        var num = 10;
+
+        function increase() {
+            num++;
+            console.log(num);
+        }
+
+        function reduction() {
+            num--;
+            console.log(num);
+        }
+
+        return {
+            increase: increase,
+            reduction: reduction
+        };
+    }
+
+    var fun = method1();
+    fun.increase();
+    fun.reduction();
+    fun = null;
+
+    <!--方式2 更加常用些，推荐-->
+    function method2(w) {
+        var num = 100;
+
+        function increase() {
+            num++;
+            console.log(num);
+        }
+
+        function reduction() {
+            num--;
+            console.log(num);
+        }
+
+        w.method2 = {
+            'increase': increase,
+            'reduction': reduction
+        };
+    }
+
+    method2(window);
+    window.method2.increase();
+    window.method2.reduction();
+    window.method2 = null;
+
+</script>
+</body>
+</html>

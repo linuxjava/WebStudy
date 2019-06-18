@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        li {
+            background-color: blue;
+            border: black;
+        }
+
+        .current {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<li class="current"></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<script type="text/javascript">
+    //小闭包或者封闭作用域或者叫匿名函数
+    (function f() {
+        var liTags = document.getElementsByTagName('li');
+        var currentPos = 0;
+        for (var index = 0; index < liTags.length; index++) {
+            (function (i) {
+                liTags[index].onmouseover = function (ev) {
+                    liTags[currentPos].className = '';
+                    currentPos = i;
+                    liTags[currentPos].className = 'current';
+                };
+            })(index);
+        }
+    })();
+</script>
+</body>
+</html>

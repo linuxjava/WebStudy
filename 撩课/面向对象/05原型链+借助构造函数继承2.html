@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/html">
+    function Person() {
+    this.name = 'xxxx';
+    this.gender = 1;
+    }
+    Person.prototype.run = function () {
+    console.log('running');
+    };
+
+    function Student() {
+    this.number = 100;
+    }
+
+
+    /**
+    * 基于04原型链继承1.html的改进，可以继承Person构造函数和Person.prototype所有的方法和属性
+    */
+    var person = new Person();
+    Student.prototype = person;
+    var student2 = new Student();
+    console.log(student2.number);
+    console.log(student2.name);
+    student2.run();
+    /**
+    * 问题
+    */
+    console.log(student2.constructor.name);//constructor.name输出为Person，实际应该为Student
+
+    //继续改造
+</script>
+
+<script type="text/javascript">
+    function Person() {
+        this.name = 'xxxx';
+        this.gender = 1;
+    }
+
+    Person.prototype.run = function () {
+        console.log('running');
+    };
+
+    function Student() {
+        this.number = 100;
+    }
+
+
+    var person = new Person();
+    Student.prototype = person;
+    Student.prototype.constructor = Student;//修改Student.prototype.constructor为Student
+
+    var student2 = new Student();
+    console.log(student2.number);
+    console.log(student2.name);
+    student2.run();
+    console.log(student2.constructor.name);
+</script>
+</body>
+</html>
