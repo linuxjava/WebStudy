@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>私有变量和函数</title>
+</head>
+<body>
+<script type="text/html">
+    function Caculator() {
+    this.result = 0;
+
+    this.jia = function (num) {
+    this.result += num;
+    return this;
+    }
+
+    this.jian = function (num) {
+    this.result -= num;
+    return this;
+    }
+
+    this.printResult = function () {
+    console.log(this.result);
+    }
+
+    this.clean = function () {
+    this.result = 0;
+    }
+    }
+
+    var c = new Caculator();
+    c.jia(2).jia(3).jian(2).printResult();
+    c.clean();
+    //问题，外部可以直接访问到result,导致计算器无法正常工作
+    c.result = 100;
+    c.jia(2).jian(3).printResult();
+</script>
+<!--通过是有变量和函数解决上面的问题-->
+<script type="text/javascript">
+    function Caculator() {
+        //私有变量
+        var result = 0;
+
+        //私有函数
+        function isNumber(num) {
+            return typeof num === 'number'
+        }
+
+        this.jia = function (num) {
+            if (isNumber(num)) {
+                result += num;
+            }else {
+                alert('输入非数字')
+            }
+            return this;
+        }
+
+        this.jian = function (num) {
+            if (isNumber(num)) {
+                result -= num;
+            }else {
+                alert('输入非数字')
+            }
+            return this;
+        }
+
+        this.printResult = function () {
+            console.log(result);
+        }
+
+        this.clean = function () {
+            result = 0;
+        }
+    }
+
+    var c = new Caculator();
+    c.jia(2).jia(3).jian(2).printResult();//输出3
+    c.clean();
+
+    c.result = 100;//访问不到var result
+    c.jia(2).jian(3).printResult();//输出-1
+
+    c.jia('2').printResult();//输出-1
+</script>
+</body>
+</html>

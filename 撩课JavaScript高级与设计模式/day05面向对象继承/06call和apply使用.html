@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var demo1 = {
+            name:'老实人',
+            doSomeThing: function (param1, param2) {
+                console.log(this.name, param1, param2);
+            }
+        }
+
+        var demo2 = {
+            name: '小偷'
+        };
+
+        //使用call借调
+        demo1.doSomeThing.call(demo2, '采花大盗', '哈哈哈1');
+        //使用apply借调
+        demo1.doSomeThing.apply(demo2, ['采花大盗', '哈哈哈2']);
+    </script>
+</body>
+</html>

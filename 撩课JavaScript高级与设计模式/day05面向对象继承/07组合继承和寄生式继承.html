@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--原型链继承方式的问题-->
+<script type="text/html">
+    function Person() {
+    this.name = 'XX学院';
+    this.pets = ['阿猫', '阿狗'];
+    }
+
+    Person.prototype.run = function () {
+    console.log('run')
+    };
+
+    function Student() {
+    this.num = 100;
+    }
+
+    //让Student继承Person
+    var person = new Person();
+    Student.prototype = person;
+    Student.prototype.constructor = Student;
+
+
+    var student1 = new Student();
+    var student2 = new Student();
+    console.log(student1);
+    console.log(student2);
+
+    //改变student1中的pets
+    student1.pets.push('小牛');
+
+    /**
+    * student2中的pets也被修改了，原因是通过上面的原型链的继承方式，生成的实例student1和student2中pets指向的是同一个对象(共享了同一个对象)
+    */
+    console.log(student1);
+    console.log(student2);
+</script>
+
+<!--使用组合继承解决上面的问题：call解决原型链继承方式的问题-->
+<script type="text/html">
+    function Person(name, pets) {
+        this.name = name;
+        this.pets = pets;
+    }
+
+    Person.prototype.run = function () {
+        console.log('run')
+    };
+
+    function Student(num, name, pets) {
+        //注意Person.call要写在Student自定义属性的前面，这样如果Student中出现了与Person中同名属性时，Student才能覆盖Person的
+        Person.call(this, name, pets);
+        this.num = num;
+    }
+
+    //让Student继承Person
+    var person = new Person();
+    Student.prototype = person;
+    Student.prototype.constructor = Student;
+
+    var student1 = new Student(100, '小明', ['阿猫', '阿狗']);
+    var student2 = new Student(100, '小红', ['阿猫', '阿狗']);
+    console.log(student1);
+    console.log(student2);
+
+    //改变student1中的pets
+    student1.pets.push('小牛');
+
+    console.log(student1);
+    console.log(student2);
+</script>
+
+<!--
+使用call解决原型链继承方式的问题，本质上已经实现了继承，但是还有些瑕疵：
+1.Person.call将Person构造函数中的所有属性(name、pets)拷贝到了Student中，完成了构造函数中的所有属性的继承，同时解决了对象被共享的问题；
+2.Student.prototype = person;让Student的原型指向了Person的一个实例，这个实例创建的过程中也会创建name、pets属性，而1中也创建了这些属性，也就是数据存在冗余；
+3.使用寄生式继承解决上面的问题
+-->
+<script type="text/javascript">
+    function Person(name, pets) {
+        this.name = name;
+        this.pets = pets;
+    }
+
+    Person.prototype.run = function () {
+        console.log('run')
+    };
+
+    function Student(num, name, pets) {
+        //注意Person.call要写在Student自定义属性的前面，这样如果Student中出现了与Person中同名属性时，Student才能覆盖Person的
+        Person.call(this, name, pets);
+        this.num = num;
+    }
+
+    //通过Temp作用中间代理实现寄生式继承(这也是最终继承方式)
+    function Temp(){}
+    Temp.prototype = Person.prototype;
+    var tempInstance = new Temp();
+    tempInstance.constructor = Student;
+    Student.prototype = tempInstance;
+
+    //注意jump的实现应该在上面代码的后面
+    Student.prototype.jump = function () {
+        console.log('jump')
+    };
+
+    var student1 = new Student(100, '小明', ['阿猫', '阿狗']);
+    var student2 = new Student(100, '小红', ['阿猫', '阿狗']);
+    console.log(student1);
+    console.log(student2);
+
+    //改变student1中的pets
+    student1.pets.push('小牛');
+
+    console.log(student1);
+    console.log(student2);
+</script>
+</body>
+</html>

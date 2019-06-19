@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function Animal(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        Animal.prototype.printName = function () {
+            console.log('name: ' + this.name);
+        };
+        Animal.prototype.printAge = function () {
+            console.log('age: ' + this.age);
+        };
+    </script>
+
+    <script type="text/javascript">
+        function Person(job, name, age) {
+            Animal.call(this, name, age);
+            this.job = job;//职位
+        }
+
+        function Temp(){}
+        Temp.prototype = Animal.prototype;
+        var temp = new Temp();
+        temp.constructor = Person;
+        Person.prototype = temp;
+
+        Animal.prototype.jump = function () {
+            console.log('jump')
+        };
+
+        var person = new Person('程序员', 'xxxx', 30);
+        console.log(person);
+        person.jump();
+        person.printName();
+        person.printAge();
+        console.log(person.constructor.name);
+
+    </script>
+
+    <script type="text/javascript">
+        function Student(num, job, name, age) {
+            Person.call(this, job, name, age);
+            this.num = num;//学生编号
+        }
+
+        function Temp(){}
+        Temp.prototype = Person.prototype;
+        var temp = new Temp();
+        temp.constructor = Student;
+        Student.prototype = temp;
+
+        //注意study的实现应该在上面代码的后面
+        Animal.prototype.study = function () {
+            console.log('学生要学习')
+        };
+
+        var student = new Student(100, '班长', '小明', 15);
+        console.log(student);
+        student.study();
+        student.jump();
+        student.printName();
+        student.printAge();
+        console.log(student.constructor.name);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象-继承-练习</title>
+</head>
+<body>
+<script type="text/html">
+    var arr = ['阿猫', '阿狗'];
+    arr.push('牛');
+    console.log(arr);//输出["阿猫", "阿狗", "牛"]
+    Array.prototype.push = function () {
+    console.log('覆盖了Array中的run方法')
+    }
+    arr.push('猪');
+    /**
+    * //输出["阿猫", "阿狗", "牛"]，'猪'并未被添加进去
+    */
+    console.log(arr);
+</script>
+
+<!--上面如果直接在内置对象的prototype中添加方法，可能产生覆盖问题-->
+
+<script type="text/javascript">
+    //使用原型链继承实现内置对象的继承，来解决上面的问题
+    function MyArray() {
+
+    }
+    MyArray.prototype = new Array();
+    //实现自定义push和Array内部的push同时存在
+    MyArray.prototype.push = function () {
+        console.log("自定义push");
+    };
+
+    var myArray = new MyArray();
+    console.log(myArray);
+</script>
+</body>
+</html>

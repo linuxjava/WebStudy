@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浅拷贝和深拷贝</title>
+</head>
+<body>
+<!--浅拷贝 简单数据类型-->
+<script type="text/html">
+    var array = {name: '小明', age: 19};
+    var copyArray = {};
+
+    for (var key in array) {
+    console.log(key);
+    copyArray[key] = array[key];
+    }
+
+    //对于简单数据类型，修改其值后不会影响其它实例
+    array.name = '周杰伦';
+    console.log(array);
+    console.log(copyArray);
+</script>
+
+<!--浅拷贝 复杂数据类型-->
+<script type="text/html">
+    var array = {name: '小明', age: 19, pets:['阿猫', '阿狗']};
+    var copyArray = {};
+
+    //手动拷贝
+    // for (var key in array) {
+    //     console.log(key);
+    //     copyArray[key] = array[key];
+    // }
+    //调用系统函数拷贝(assign也可以将多个对象拷贝到目的对象)
+    //Object.assign(copyArray, array, {address: 'hhhhhh'});
+    Object.assign(copyArray, array);
+
+    /**
+    * 上面的两种拷贝方式，所以生成的实例，其复杂类型都是共享的
+    */
+    array.pets.push('周杰伦');
+    console.log(array);
+    console.log(copyArray);
+</script>
+
+<!--深拷贝-->
+<script type="text/javascript">
+    // 1. 要拷贝的对象
+    var obj = {
+        name: '撩课',
+        age: 18,
+        friends: ['小花', '小黑'],
+        goodF: {
+            name: '小撩',
+            age: 19,
+            adress: '上海',
+            pets: [{name: '土豆'}, {name: '马铃薯'}]
+        },
+        bir: new Date()
+    };
+
+    /**
+     * 深拷贝
+     */
+    function deepCopy(sourceObj, copyObj) {
+        for (var key in sourceObj){
+            var valueObj = sourceObj[key];
+            if(isObejct(valueObj)){
+                var newValueObj = new valueObj.constructor;
+                deepCopy(valueObj, newValueObj);
+                copyObj[key] = newValueObj;
+            }else {
+                copyObj[key] = valueObj;
+            }
+        }
+    }
+
+    /**
+     * 判断一个对象是否是Object
+     * @param obj
+     */
+    function isObejct(obj) {
+        return obj instanceof Object;
+    }
+
+    /**
+     * 判断对象是否是Array
+     * @param arr
+     * @returns {arg is Array<any>}
+     */
+    function isArray(arr) {
+        return Array.isArray(arr);
+    }
+
+
+    var copyObj = {};
+    deepCopy(obj, copyObj);
+    obj.friends.push('牛');
+    obj.goodF.pets[0]['gae'] = 18;
+
+    console.log(obj);
+    console.log(copyObj);
+</script>
+</body>
+</html>
