@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01非布局样式-字体</title>
+    <style type="text/css">
+        /*字体分字体族和具体字体名称,如果是字体族是不需要加双引号的，而具体字体名称是需要的*/
+        .c1{
+            font-family: "Microsoft YaHei";
+        }
+        .c2{
+            font-family: serif;
+        }
+        /*PingFang SC为mac的字体，所以放在最前面。mac下使用PingFang SC，因为window下没有PingFang SC，所以会继续向后查找使用Microsoft YaHei或者monospace*/
+        .c3{
+            font-family: "PingFang SC", "Microsoft YaHei", monospace;
+        }
+
+        @font-face {
+            font-family: IF;
+            src: url("../font/IndieFlower.ttf");
+        }
+        .custom-font{
+            font-family: IF, serif;
+        }
+
+    </style>
+</head>
+<body>
+    <div><img src="../image/字体.png" style="width: 300px;height: 300px"></div>
+    <p class="c1">Hello world</p>
+    <p class="c2">Hello world</p>
+
+<!--    不同平台下字体的兼容-->
+    <p class="c3">Hello world</p>
+<!--    自定义字体-->
+    <p class="custom-font">Hello world</p>
+</body>
+</html>

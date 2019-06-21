@@ -1,0 +1,91 @@
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03非布局样式-背景</title>
+    <style type="text/css">
+        /*设置背景颜色*/
+        .c0{
+            height: 20px;
+            background-color: blue;
+            background-size: 296px 310px;
+        }
+        /*设置背景图片*/
+        .c00{
+            width: 296px;
+            height: 310px;
+            background-image: url('../image/背景.png');
+            background-size: 296px 310px;
+        }
+
+        /*设置渐变背景，注意是background而不是background-color*/
+        .c1 {
+            height: 80px;
+            /*background: linear-gradient(to right, red, green);*/
+            /*注意这里面的%的含义，例如red 50%：是指50%的地方是红色*/
+            /*background: linear-gradient(to right, red 0%, green 50%, blue 100%);*/
+            /*0deg是从下到上的*/
+            /*background: linear-gradient(90deg, red, green);*/
+
+
+            /*多背景叠加，产生漂亮的效果*/
+            background: linear-gradient(135deg, transparent 0, transparent 49.5%, blue 49.5%, blue 50.5%, transparent 50.5%, transparent 100%),
+            linear-gradient(45deg, transparent 0, transparent 49.5%, blue 49.5%, blue 50.5%, transparent 50.5%, transparent 100%);
+            /*设置背景的大小，这样这个背景会在div中上下重复平铺*/
+            background-size: 30px, 30px;
+        }
+
+        /*背景:图片设置*/
+        .c2 {
+            height: 300px;
+            /*可以设置多个叠加*/
+            background: red url("../image/test.png");
+            /*背景图不进行重复绘制*/
+            background-repeat: no-repeat;
+            /*控制背景图显示位置*/
+            background-position: center;
+            /*控制背景图大小*/
+            background-size: 200px 200px;
+        }
+
+        /*雪碧图实现:只显示背景图中的某个图标*/
+        .c3 {
+            width: 40px;
+            height: 40px;
+            background: url("../image/test_bg.png") no-repeat;
+            background-position: -34px -10px;
+        }
+
+        .c4 {
+            width: 40px;
+            height: 40px;
+            margin-top: 50px;
+            background: url("../image/test_bg.png") no-repeat;
+            background-position: -338px -46px;
+        }
+    </style>
+</head>
+<body>
+<div class="c0">
+
+</div>
+<div class="c00">
+
+</div>
+
+<div class="c1">
+
+</div>
+
+<div class="c2">
+
+</div>
+
+<div class="c3">
+
+</div>
+<div class="c4">
+
+</div>
+</body>
+</html>

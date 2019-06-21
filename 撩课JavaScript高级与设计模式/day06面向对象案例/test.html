@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function onfocusTest() {
+            console.log('onfocusTest');
+            document.getElementById('test').blur();
+        }
+
+        function onblurTest() {
+            console.log('onblurTest');
+        }
+    </script>
+</head>
+<body>
+<input id="test" onfocus="onfocusTest()" onblur="onblurTest()"><br/>
+mWebContainer.addJsApi(new OpenKeyboradPage());
+<input>
+</body>
+</html>

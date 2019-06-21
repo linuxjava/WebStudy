@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>00选择器</title>
+    <style type="text/css">
+        #div1 {
+            color: red;
+        }
+
+        .div1 {
+            color: blue;
+        }
+
+        .div2 {
+            color: red;
+        }
+
+        div.div2 {
+            color: blue;
+        }
+
+        #div3 {
+            color: red;
+        }
+
+        .c0.c1.c2.c3.c4.c5.c6.c7.c8.c9.c10 {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="../image/选择器权重.png" style="width: 200px;height: 200px">
+    <img src="../image/选择器权重1.png" style="width: 200px;height: 200px">
+</div>
+<!--id选择器的权重为100，类选择器权重为10，所以显示为红色-->
+<div id="div1" class="div1">div1</div>
+<!--div.div2权重11=10+1，类选择器权重为10，所以显示为蓝色-->
+<div class="div2">div2</div>
+<!--div3权重100，类选择器权重110（共有11个，每个权重是10），但是每一级的权重是不会向上进位的，所以显示为红色-->
+<div id="div3" class="c0 c1 c2 c3 c4 c5 c6 c7 c8 c9 c10">div2</div>
+</body>
+</html>

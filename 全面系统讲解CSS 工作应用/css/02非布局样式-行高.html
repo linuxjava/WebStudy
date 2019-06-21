@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02非布局样式-行高</title>
+    <style type="text/css">
+        .c1 {
+            line-height: 50px;
+        }
+
+        .c2 {
+            line-height: 30px;
+        }
+
+        .c3 {
+            font-size: 10px;
+            vertical-align: middle;
+        }
+
+        .c4 {
+            font-size: 30px;
+            vertical-align: middle;
+        }
+
+        .c5 {
+            font-size: 50px;
+            vertical-align: middle;
+        }
+
+        .c6 {
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<!--本节知识重点:
+1.理解行高；
+2.理解行内元素对齐方式;
+-->
+<body>
+<div style="border: solid red 1px">
+    <!--
+    1.div本身未设置高度，默认高度是0;
+    2.下面的设置导致div的高度为50px,因为所有的inline元素最高为50px;
+    3.并且默认情况下所有元素垂直居中显示;
+    -->
+    <span class="c1">非布局样式（行高）</span><span class="c2">inline</span>非布局样式（行高）
+</div>
+
+<div style="border: solid red 1px;margin-top: 10px">
+    <!--
+    1.默认情况下，是使用字体的基线对齐的;
+    2.通过vertical-align可以设置其垂直对齐方式，注意垂直居中是middle而不是center;
+    3.如果只设置c3、c4的，不设置c5，那么是没有效果的;
+    4.vertical-align也可以设置为像素值(10px);
+    -->
+    <span class="c3">第一段</span><span class="c4">第二段ag</span><span class="c5">第三段</span>
+</div>
+
+
+<div style="border: solid red 1px;margin-top: 10px">
+    <img src="../image/test_bg.png"><img src="../image/test_bg.png">
+</div>
+<div style="border: solid red 1px;margin-top: 10px">
+    <span class="c6">第一段</span><img src="../image/test_bg.png">
+</div>
+<!--上面的示例中，第二个因为有文字所有图片需要与文字的基线对齐，导致离底部会有一定距离,使用vertical-align解决-->
+<div style="border: solid red 1px;margin-top: 10px">
+    <img src="../image/test_bg.png" style="vertical-align: bottom">
+    <img src="../image/test_bg.png" style="vertical-align: bottom">
+</div>
+<div style="border: solid red 1px;margin-top: 10px">
+    <span class="c6">第一段</span><img src="../image/test_bg.png" style="vertical-align: bottom">
+</div>
+</body>
+</html>

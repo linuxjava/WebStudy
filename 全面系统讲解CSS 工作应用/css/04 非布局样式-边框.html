@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04 非布局样式-边框</title>
+    <style type="text/css">
+        .c1 {
+            width: 400px;
+            height: 200px;
+            border: solid 30px;
+            border-image-source: url("../image/border.png");
+            /*border-image-slice表示控制border-image图片中四个角上有多少像素*/
+            border-image-slice: 30;
+            /*除去border-image-slice区域以外的其它区域如何扩展图形.repeat:扩展图形中间可能会有不完整的图形;round:会通过挤压的方式保证中间不出现完整的图形*/
+            border-image-repeat: round;
+            /*border-image-repeat: repeat;*/
+
+        }
+
+        .c2 {
+            width: 400px;
+            height: 200px;
+            border-bottom: solid red 50px;
+            border-right: solid transparent 50px;
+        }
+
+        .c3 {
+            width: 400px;
+            height: 200px;
+            border-bottom: solid red 50px;
+            border-right: solid transparent 50px;
+            border-left: solid transparent 50px;
+        }
+
+        .c4 {
+            width: 0;
+            height: 200px;
+            border-bottom: solid red 100px;
+            border-right: solid transparent 100px;
+            border-left: solid transparent 100px;
+        }
+
+        .c5 {
+            width: 0;
+            height: 200px;
+            border-bottom: solid red 100px;
+            border-right: solid transparent 100px;
+            border-left: solid transparent 100px;
+            border-radius: 120px;
+        }
+    </style>
+</head>
+<body>
+<!--边框背景图实现-->
+<div class="c1"></div>
+<!--实现三角形-->
+<div class="c2"></div>
+<div class="c3"></div>
+<div class="c4"></div>
+<!--实现扇形-->
+<div class="c5"></div>
+</body>
+</html>

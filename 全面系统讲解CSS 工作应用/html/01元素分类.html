@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML元素分类</title>
+</head>
+<body>
+<ol>
+    <p>元素分类</p>
+    <li>block元素,占据整行，表现为矩形,可以设置宽高</li>
+    <li>inline元素,不占据整行，表现为矩形或不规则形状,设置宽高是无效的</li>
+    <li>inline-block,对外表现为inline,对内表现为block,可以设置宽高</li>
+</ol>
+
+<div style="height: 100px;background-color: gray">div元素(block元素),占据整行,如果超出后自动占据多行</div>
+<!--p是block元素，内部可以有多个inline元素，在一行显示-->
+<p><span style="width: 200px;height: 100px;background-color: red">内联元素</span><em>内联元素</em><strong>我也是内联元素</strong></p>
+
+<p>
+    <!--
+    1.select为inline-block元素;
+    2.select对外表现为inline，所以与span可以在一行;
+    3.select对外表现为block,显示为矩形，控件不够也不会换行
+    -->
+    <select>
+        <option>下拉列表哈哈哈哈哈哈哈哈</option>
+    </select>
+    <span>我是内联元素</span>
+</p>
+</body>
+</html>
