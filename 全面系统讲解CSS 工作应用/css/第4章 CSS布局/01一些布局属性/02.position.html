@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02.position</title>
+    <!--    position:
+static:默认形式
+relative:相对自身定位,但是元素本身还是会占据文档流空间，这样其它元素会受其影响
+absolute:相对最近的relative或absolute父元元素,否则就是body（不占据文档流空间）
+fixed:相对于可视区域的定位（不占据文档流空间）
+-->
+    <style type="text/css">
+        .p1 {
+            width: 100px;
+            height: 100px;
+            position: static;
+            background-color: red;
+        }
+
+        .p2 {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background-color: green;
+            left: 100px;
+            top: 0;
+        }
+
+        .p3 {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: blue;
+            left: 108px;
+            top: 8px;
+        }
+
+        .p4 {
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            background-color: pink;
+            left: 0;
+            bottom: 10px;
+        }
+
+        .p5 {
+            width: 120px;
+            height: 120px;
+            position: static;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+<div class="p1"></div>
+<div class="p2"></div>
+<div class="p3"></div>
+<div class="p4"></div>
+<div class="p5"></div>
+</body>
+</html>

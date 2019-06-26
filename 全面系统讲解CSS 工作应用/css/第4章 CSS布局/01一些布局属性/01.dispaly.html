@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01一些布局属性</title>
+<!--    dispaly和position
+1.display:block\inline\inline-block
+2.position:static\relative\absolute\fixed
+-->
+    <style type="text/css">
+        .block{
+            height: 200px;
+            background-color: red;
+            display: block;
+        }
+        .inline{
+            /*inline元素设置宽高是无效的*/
+            height: 100px;
+            display: inline;
+            background-color: blue;
+        }
+        .inline-block{
+            width: 200px;
+            height: 100px;
+            display: inline-block;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="block">block</div>
+    <div class="inline">inline</div>
+    <div class="inline">inline</div>
+    <div class="inline-block">inline-block</div>
+</body>
+</html>

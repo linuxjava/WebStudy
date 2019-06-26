@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>float布局</title>
+    <style type="text/css">
+        /*float特性：
+        1.脱离文档流，但不脱离文本流;
+        2.添加float的元素会行程一个block，可以添加width和height属，因此inline元素也可以设置宽高;
+        3.一个浮动元素会尽量向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止;
+        4.导致父元素高度塌陷，因为float元素的高度是不会被计算的;
+        */
+        .p1 {
+            float: left;
+            background-color: red;
+            width: 100px;
+            height: 50px;
+        }
+
+        .p2 {
+            background-color: blue;
+            width: 300px;
+            height: 200px;
+        }
+
+        .p3 {
+            background-color: red;
+        }
+
+        .p4 {
+            float: left;
+            background-color: blue;
+            width: 200px;
+            height: 50px;
+        }
+
+        .container:after{
+            /*设置空字符串*/
+            content: '';
+            /*设置为block元素*/
+            display: block;
+            /*清除左右浮动*/
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<!--
+(1)p2虽然在p1后面，但是因为p1是float它脱离了文档里，所以p2的布局并未p1影响，但是p2的文本内容受p1影响
+(2)span是inline元素，也可以设置width和height
+-->
+<div>
+    <span class="p1">float</span>
+
+    <div class="p2">我不是float 我不是float 我不是float 我不是float 我不是float 我不是float 我不是float 我不是float 我不是float 我不是float
+        我不是float 我不是float 我不是float 我不是float 我不是float 我不是float 我不是float 我不是float 我不是float 我不是float 我不是float 我不是float
+    </div>
+</div>
+
+<div style="margin-top: 50px;width: 400px;">
+    <span class="p3">写几个字</span>
+    <span class="p4">float</span>
+    <span class="p4">float</span>
+</div>
+<!--上面的例子中高度只有p3的高度，有两种方式恢复布局高度
+1.通过overflow可以保证其高度计算float元素高度-->
+<div style="margin-top: 70px;width: 400px;overflow: auto">
+    <span class="p3">写几个字</span>
+    <span class="p4">float</span>
+    <span class="p4">float</span>
+</div>
+<!--2.通过设置一个不可见的元素在最后一个浮动元素的下方，让其撑起高度-->
+<div class="container" style="width: 400px;">
+    <span class="p3">写几个字</span>
+    <span class="p4">float</span>
+    <span class="p4">float</span>
+</div>
+</body>
+</html>

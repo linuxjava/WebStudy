@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inline-block布局</title>
+    <!--inline-block布局使用虽然简单，但是无法自适应，所以他只适合宽度固定效果布局-->
+    <style type="text/css">
+        .container {
+            width: 800px;
+            height: 200px;
+            margin-top: 10px;
+        }
+
+        .left {
+            width: 300px;
+            height: 200px;
+            display: inline-block;
+            background-color: red;
+        }
+
+        .right {
+            width: 495px;
+            height: 200px;
+            display: inline-block;
+            background-color: blue;
+        }
+
+        .container1 {
+            width: 800px;
+            height: 200px;
+            font-size: 0;
+            margin-top: 10px;
+        }
+
+        .left1 {
+            width: 300px;
+            height: 200px;
+            display: inline-block;
+            background-color: red;
+            font-size: 16px;
+        }
+
+        .right1 {
+            width: 500px;
+            height: 200px;
+            display: inline-block;
+            background-color: blue;
+            font-size: 16px;
+        }
+
+        .container2 {
+            width: 800px;
+            height: 200px;
+            margin-top: 10px;
+        }
+
+        .left2 {
+            width: 300px;
+            height: 200px;
+            display: inline-block;
+            background-color: red;
+        }
+
+        .right2 {
+            width: 500px;
+            height: 200px;
+            display: inline-block;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<!--inline-block布局会存在间隙，存在间隙的原因是两个inline-block元素间存在留白或间距-->
+<div class="container">
+    <div class="left">
+        左边
+    </div>
+    <div class="right">
+        右边
+    </div>
+</div>
+<!--解决方法1(推荐)-->
+<div class="container1">
+    <div class="left1">
+        左边
+    </div>
+    <div class="right1">
+        右边
+    </div>
+</div>
+<!--解决方法2:-->
+<div class="container2">
+    <!--    通过代码排版去掉inline-block之间的留白-->
+    <!--<div class="left2">
+        左边
+    </div>
+    <div class="right2">
+        右边
+    </div>-->
+
+    <!--    或者通过注释去掉留白-->
+    <div class="left2">
+        左边
+    </div><!--
+    --><div class="right2">
+        右边
+    </div>
+</div>
+</body>
+</html>
