@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标移动变色</title>
+    <script src="../jq/jquery-3.4.1.js"></script>
+    <style>
+        .font-center {
+            text-align: center;
+        }
+
+        .checkbox{
+            width: 15px;
+            height: 15px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $('tr:gt(0)').hover(function () {
+                $(this).css('backgroundColor', 'silver');
+            }, function () {
+                $(this).css('backgroundColor', 'white');
+            });
+        });
+
+        function onSelectAll(obj) {
+            $('tr .checkbox').prop('checked', obj.checked);
+        }
+    </script>
+</head>
+<body>
+<table bgcolor="#cccccc" border="0" cellspacing="1" cellpadding="6" width="800px" align="center">
+    <tr bgcolor="#e9faff">
+        <th>
+            <input type="checkbox" class="checkbox" onclick="onSelectAll(this)">
+        </th>
+        <th>分类</th>
+        <th>分类名称</th>
+        <th>分类描述</th>
+        <th>操作</th>
+    </tr>
+    <tr bgcolor="white">
+        <td class="font-center"><input class="checkbox" type="checkbox"></td>
+        <td class="font-center">0</td>
+        <td class="font-center">手机数码</td>
+        <td class="font-center">手机数码类商品</td>
+        <td class="font-center">修改|删除</td>
+    </tr>
+    <tr bgcolor="white">
+        <td class="font-center"><input class="checkbox" type="checkbox"></td>
+        <td class="font-center">1</td>
+        <td class="font-center">手机数码</td>
+        <td class="font-center">手机数码类商品</td>
+        <td class="font-center">修改|删除</td>
+    </tr>
+    <tr bgcolor="white">
+        <td class="font-center"><input class="checkbox" type="checkbox"></td>
+        <td class="font-center">2</td>
+        <td class="font-center">手机数码</td>
+        <td class="font-center">手机数码类商品</td>
+        <td class="font-center">修改|删除</td>
+    </tr>
+    <tr bgcolor="white">
+        <td class="font-center"><input class="checkbox" type="checkbox"></td>
+        <td class="font-center">3</td>
+        <td class="font-center">手机数码</td>
+        <td class="font-center">手机数码类商品</td>
+        <td class="font-center">修改|删除</td>
+    </tr>
+</table>
+</body>
+</html>

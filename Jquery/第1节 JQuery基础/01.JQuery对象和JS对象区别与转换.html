@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery对象和JS对象区别与转换.html</title>
+    <script src="../jq/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div>aaa</div>
+    <div>aaa</div>
+
+<script type="text/javascript">
+    //通过js方式获取,divs的类型为 HTMLCollection
+    var divs = document.getElementsByTagName('div');
+    alert(divs);
+    //通过jq方式获取,$divs的类型为Object
+    var $divs = $('div');
+    alert($divs);
+
+    //通过js方式遍历元素
+    for (var i = 0; i < divs.length; i++) {
+        divs[i].innerHTML = 'bbb';
+    }
+    //通过jq方式遍历元素
+    $divs.html('ccc');
+
+    /**
+     * 通过上面得到结论:
+     * 1.jq使用更简单;
+     * 2.jq对象与js对象的方法使用有差别，需要转换
+     */
+    //js转jq
+    for (i = 0; i < divs.length; i++) {
+        $(divs[i]).html('js转jq');
+    }
+
+    //jq转js
+    $divs[0].innerHTML = 'jq转js';
+</script>
+</body>
+</html>
