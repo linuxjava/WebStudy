@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery_插件机制</title>
+    <script src="../jq/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        //给jq对象扩展内置方法
+        $.fn.extend({
+            myChecked:function () {
+                this.prop('checked', true);
+            },
+            myUncheck:function () {
+                this.prop('checked', false);
+            }
+        });
+
+        function onSelectAll(){
+            $("input[type='checkbox']").myChecked();
+        }
+        function onUnselectAll(){
+            $("input[type='checkbox']").myUncheck();
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <button onclick="onSelectAll()">全选</button>
+        <button onclick="onUnselectAll()">反选</button>
+    </div>
+<div>
+    篮球<input type="checkbox">
+    足球<input type="checkbox">
+    乒乓球<input type="checkbox">
+</div>
+</body>
+</html>

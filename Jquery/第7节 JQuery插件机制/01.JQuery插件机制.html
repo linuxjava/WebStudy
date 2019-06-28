@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery_插件机制</title>
+    <script src="../jq/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        //给jq扩展内置方法
+        $.extend({
+            max : function (a, b) {
+                return a >= b ? a : b;
+            },
+
+            min : function (a, b) {
+                return a < b ? a : b;
+            }
+        });
+
+        $(function () {
+            alert($.max(3, 5));
+            alert($.min(3, 5));
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

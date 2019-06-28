@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery遍历</title>
+    <script src="../jq/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //遍历方式1
+            // $('#ul li').each(function () {
+            //     alert(this.innerHTML);
+            // });
+
+            //遍历方式2
+            // $('#ul li').each(function (index, element) {
+            //     alert(index + ":" + element.innerHTML);
+            // });
+
+            //each返回true等同于continu,返回false等同于break
+            // $('#ul li').each(function (index, element) {
+            //     if(index === 2){
+            //         return false;
+            //     }
+            //     alert(index + ":" + element.innerHTML);
+            // });
+
+            //遍历方式3,
+            $.each($('#ul li'), function (index, element) {
+                alert(index + ":" + element.innerHTML);
+            });
+
+            //遍历方式4
+            for (item of $('#ul li')) {
+                alert(item.innerHTML);
+            }
+        });
+    </script>
+</head>
+<body>
+<ul id="ul">
+    <li>北京</li>
+    <li>上海</li>
+    <li>天津</li>
+    <li>成都</li>
+</ul>
+</body>
+</html>

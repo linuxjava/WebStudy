@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery动画1</title>
+    <script src="../jq/jquery-3.4.1.js"></script>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+        function onShow() {
+            // $('#div').show('slow', 'linear', function () {
+            //     alert('显示动画结束');
+            // });
+
+            // $('#div').slideDown(3000, 'linear', function () {
+            //
+            // });
+
+            $('#div').fadeIn(3000, 'linear', function () {
+
+            });
+        }
+
+        function onHide() {
+            // $('#div').hide(3000, 'linear', function () {
+            //     alert('隐藏动画结束');
+            // });
+
+            // $('#div').slideUp('slow', 'linear', function () {
+            //
+            // });
+
+            $('#div').fadeOut('slow', 'linear', function () {
+
+            });
+        }
+
+        function onHideAndShow() {
+            //$('#div').toggle(3000, 'swing');
+            //$('#div').slideToggle(3000, 'swing');
+            $('#div').fadeToggle(3000, 'swing');
+        }
+    </script>
+</head>
+<body>
+    <button id="hide" onclick="onHide()">隐藏</button>
+    <button id="show" onclick="onShow()">显示</button>
+    <button id="hideAndShow" onclick="onHideAndShow()">隐藏和显示</button>
+    <br/>
+    <div id="div" style="background-color: pink;width: 200px;height: 200px">
+        显示和隐藏div元素
+    </div>
+</body>
+</html>
