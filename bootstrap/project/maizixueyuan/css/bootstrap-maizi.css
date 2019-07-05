@@ -1,6 +1,16 @@
 body{
     font-family: "Microsoft YaHei", sans-serif;
 }
+.mai-icon{
+    background-color: #40D2B1;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    color: white;/*设置图标颜色*/
+    text-align: center;
+    line-height: 40px;
+    margin-right: 20px;
+}
 /*导航*/
 .navbar-default {
     background-color: #fff;
@@ -50,10 +60,131 @@ body{
     width: 100%;
     height: 100%;
     background: rgba(0,0,0, 0.65);
-    padding: 90px 0;
+    padding: 70px 0;
 }
 
 #home img{
     margin-top: 30px;
     display: inline-block;
+
+}
+
+#home h1{
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+#home p{
+    font-weight: bold;
+    line-height: 25px;
+}
+
+/*bbs*/
+#bbs{
+    padding: 80px 0;
+    text-align: center;
+}
+#bbs img{
+    margin: 0 auto;/*让图片左右居中*/
+}
+#bbs a{
+    color: #212121;/*设置a标签中文字的颜色*/
+    text-decoration: none;/*去掉鼠标移动到a上的下划线*/
+}
+#bbs .col-md-4{
+    padding: 15px;
+}
+#bbs .col-md-4:hover{
+    background-color: #f1f1f1;
+    box-shadow: 1px 1px 4px #ccc;
+}
+
+/*html5*/
+#html5{
+    padding: 80px 0;
+    background: #f8f8f8;
+}
+#html5 h2{
+    font-weight: bold;
+    margin-top: 0;
+}
+#html5 p{
+    line-height: 25px;
+}
+
+#html5 #p1{
+    margin-top: 20px;
+}
+
+/*bootstrap*/
+#bootstrap{
+    padding: 80px 0;
+    background: white;
+}
+#bootstrap h2{
+    font-weight: bold;
+    margin-top: 0;
+}
+#bootstrap #p2{
+    margin-top: 20px;
+}
+#bootstrap p{
+    line-height: 25px;
+}
+
+#bootstrap .mai-icon{
+    float: left;
+}
+
+/*course*/
+#course{
+    font-weight: bold;
+    padding: 80px 0;
+    background: #f8f8f8;
+    text-align: center;
+}
+.course{
+    background-color: white;
+}
+#course h1{
+    margin-top: 70px;
+}
+#course .col-md-3{
+    margin-top: 50px;
+}
+#course .btn{
+    background-color: transparent;
+    color: #40D2B1;
+    border: 1px solid #40D2B1;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#course .btn:hover{
+    background-color: #40D2B1;
+    color: white;
+}
+
+/*app*/
+#app{
+    padding: 80px 0;
+    background: white;
+}
+#app h2{
+    margin-top: 0;
+    font-weight: bold;
+}
+#app div p{
+    margin-top: 35px;
+}
+#app .btn{
+    margin: 10px 0;
+    background: rgb(64, 210, 177);
+    border-color: rgb(64, 210, 177);
+    border-radius: 0;
+    padding: 6px 30px;
+    transition: all 0.3s;
+    width: 150px;
+}
+#app .btn:hover{
+    background: rgb(44, 142, 120);
 }
