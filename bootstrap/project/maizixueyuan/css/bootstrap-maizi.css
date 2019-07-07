@@ -188,3 +188,40 @@ body{
 #app .btn:hover{
     background: rgb(44, 142, 120);
 }
+
+/*contact*/
+#contact{
+    /*padding: 80px 0;*/
+    background-image: url("../image/contact-bg.png");
+    background-size: cover;
+    color: white;
+}
+#contact h2{
+    font-weight: bold;
+    margin-top: 0;
+}
+#contact_p{
+    line-height: 25px;
+    margin-top: 20px;
+}
+#contact .form-control {
+    border: none;
+    border-radius: 0;
+    height: 50px;
+    margin-bottom: 20px;
+}
+#contact input[type=submit]{
+    background-color: #40D2B1;
+    color: white;
+    font-weight: bold;
+}
+#contact input[type=submit]:hover{
+    background: rgb(44, 142, 120);
+}
+
+/*footer*/
+footer{
+    font-weight: 400;
+    text-align: center;
+    padding:20px ;
+}
