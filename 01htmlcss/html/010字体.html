@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .p1 {
+            font-size: 30px;
+            font-family: Arial, 微软雅黑, serif;
+            font-style: italic;
+            font-weight: bold;
+            /*
+             * 是小写字母转为大小字母，但是转换后的大小字母比正常的大写字母小
+             */
+            font-variant: small-caps;
+        }
+
+        /*
+         *使用简写方式
+         *      1.简写方式中font-size和font-family必须设置；
+         *      2.font-style、font-weight、font-variant不是必须的，顺序也不是固定的；
+         */
+        .p2 {
+            font: italic bold small-caps 30px Arial, 微软雅黑, serif;
+        }
+    </style>
+</head>
+<body>
+<p class="p1">我是文字，ABCDEFGabcdefg</p>
+<p class="p2">我是文字，ABCDEFGabcdefg</p>
+</body>
+</html>

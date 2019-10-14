@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>HTML元素分类</title>
+
 </head>
 <body>
 <ol>
@@ -27,5 +28,25 @@
     </select>
     <span>我是内联元素</span>
 </p>
+<div id="test"></div>
 </body>
+
+<script type="text/javascript">
+    var gSessionId = "xiao";
+    var innerFuncObj = {
+        "sessionId": gSessionId,
+        "funcId": 1234,
+        "args_format": "args_format"
+    };
+    var innerFuncStr = JSON.stringify(innerFuncObj, function (key, value) {
+        if (key === "sessionId") {
+            return undefined;
+        } else {
+            return value;
+        }
+    }, 4);
+    document.write("<pre>" + innerFuncStr + "</pre>");
+
+</script>
+
 </html>

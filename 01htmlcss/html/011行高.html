@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>行高</title>
+    <style type="text/css">
+        /*
+         * 行间距 = line-height - font-size
+         * line-height可以使用如下三种：
+         *                  1.像素值;
+                            2.百分比;
+                            3.数值;
+         */
+        .box{
+            font-size: 20px;
+            line-height:40px;
+            /*line-height:100%;*/
+            /*line-height:1;*/
+        }
+
+        /*
+         *设置 行高=height,可以让单行文本垂直居中显示，但是多行文本是不行的
+         */
+        .box1{
+            background-color: #bfc;
+            height: 200px;
+            font-size: 20px;
+            /*垂直居中*/
+            line-height:200px;
+            /*水平居中*/
+            text-align: center;
+        }
+
+        /*行高简写方式, 如果不设置就是默认行高*/
+        .box3{
+            font: 20px/40px Arial,微软雅黑,serif;
+        }
+
+        .box4{
+            /*这样设置行高是无效的，因为被font的默认值覆盖了*/
+            line-height: 40px;
+            font: 20px Arial,微软雅黑,serif;
+        }
+    </style>
+</head>
+<body>
+<p class="box">西方语言都是从左向右读，所有 text-align 的默认值是 left。文本在左边界对齐，右边界呈锯齿状（称为“从左到右”文本）。对于希
+    伯来语和阿拉伯语之类的的语言，text-align 则默认为 right，因为这些语言从右向左读。不出所料，center 会使每个文本行在元素中居中
+    伯来语和阿拉伯语之类的的语言，text-align 则默认为 right，因为这些语言从右向左读。不出所料，center 会使每个文本行在元素中居中
+    伯来语和阿拉伯语之类的的语言，text-align 则默认为 right，因为这些语言从右向左读。不出所料，center 会使每个文本行在元素中居中
+    伯来语和阿拉伯语之类的的语言，text-align 则默认为 right，因为这些语言从右向左读。不出所料，center 会使每个文本行在元素中居中
+    伯来语和阿拉伯语之类的的语言，text-align 则默认为 right，因为这些语言从右向左读。不出所料，center 会使每个文本行在元素中居中
+</p>
+
+<div class="box1">
+    西方语言都是从左向右读
+</div>
+
+<p class="box3">
+    西方语言都是从左向右读西方语言都是
+</p>
+</body>
+</html>
