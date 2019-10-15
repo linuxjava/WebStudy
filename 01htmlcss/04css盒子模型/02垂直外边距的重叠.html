@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>垂直外边距的重叠</title>
+
+
+
+    <style type="text/css">
+        /*
+         * 外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距
+         * 注释：只有普通文档流中块框的垂直外边距才会发生外边距合并。行内框、浮动框或绝对定位之间的外边距不会合并
+         * 1.垂直方向上两个相邻的元素；
+         * 2.相邻的父子元素；
+         * 3.空元素的上下margin合并;
+         *
+         * 解决方法：
+         * 1.使用padding,border隔离;
+         * 2.使用标签隔离;
+         */
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            margin-bottom: 100px;
+        }
+
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin-top: 100px;
+        }
+
+        .box3{
+            width: 300px;
+            height: 300px;
+            background-color: gainsboro;
+        }
+
+        .box4{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: 100px;
+        }
+
+        .box5{
+            /*空元素的上下margin合并*/
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+
+    </div>
+
+    <div class="box2">
+
+    </div>
+
+    <div class="box3">
+        <div class="box4">
+
+        </div>
+    </div>
+
+    <div class="box5">
+
+    </div>
+</body>
+</html>

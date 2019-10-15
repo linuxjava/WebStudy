@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Overflow</title>
+    <style type="text/css">
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            /*
+             * overflow指定元素内容溢出时该如何显示
+             *      visible：
+                    hidden：超出的内容隐藏
+                    scroll：显示水平和垂直两个方向上的滚动条
+                    auto：自动显示水平和垂直两个方向上的滚动条
+             */
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+    <p>除非专门指定，否则所有框都在普通流中定位。也就是说，普通流中的元素的位置由元素在 (X)HTML 中的位置决定。
+
+        块级框从上到下一个接一个地排列，框之间的垂直距离是由框的垂直外边距计算出来。
+
+        行内框在一行中水平布置。可以使用水平内边距、边框和外边距调整它们的间距。但是，垂直内边距、边框和外边距不影响行内框的高度。由一行形成的水平框称为行框（Line
+        Box），行框的高度总是足以容纳它包含的所有行内框。不过，设置行高可以增加这个框的高度。
+
+        在下面的章节，我们会为您详细讲解相对定位、绝对定位和浮动</p>
+</div>
+</body>
+</html>
