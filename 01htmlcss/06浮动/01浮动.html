@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动01</title>
+
+    <style type="text/css">
+        /*
+         * 浮动元素特点：
+         * 1.浮动元素尽量向上，其次是向左(设置为left)或右(设置为right)浮动；
+         * 2.浮动元素直到遇见父元素边框或其它浮动元素才停止浮动；
+         * 3.如果浮动元素的上面是一个没有浮动的块元素，浮动元素不会超过这个块元素；
+         * 4.浮动元素不会超过它上面的兄弟元素，最多一边齐；
+         */
+        .box1{
+            width: 600px;
+            height: 200px;
+            background-color: red;
+            float: left;
+        }
+
+        .box2{
+            width: 400px;
+            height: 200px;
+            background-color: green;
+            float: left;
+        }
+
+        .box3{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <!--4.浮动元素不会超过它上面的兄弟元素，最多一边齐；-->
+    <div class="box1">
+
+    </div>
+    <div class="box2">
+
+    </div>
+    <div class="box3">
+
+    </div>
+</body>
+</html>
